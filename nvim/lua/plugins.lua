@@ -1,6 +1,5 @@
 require("packer").startup(function(use)
     use("wbthomason/packer.nvim");
-    use("EdenEast/nightfox.nvim");
     use("Mofiqul/dracula.nvim");
     use({
         "nvim-telescope/telescope.nvim",
@@ -10,6 +9,10 @@ require("packer").startup(function(use)
         }
     });
     use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"});
+    use({
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        requires = "nvim-treesitter/nvim-treesitter",
+    })
     use("tpope/vim-fugitive");
     use({
         "VonHeikemen/lsp-zero.nvim",
@@ -42,10 +45,5 @@ require("packer").startup(function(use)
     use("mfussenegger/nvim-dap");
     use("rcarriga/nvim-dap-ui");
     use("theHamsta/nvim-dap-virtual-text");
-    use("github/copilot.vim");
-
-
-    use("HampusHauffman/block.nvim");
-    use("HampusHauffman/bionic.nvim");
 end)
 

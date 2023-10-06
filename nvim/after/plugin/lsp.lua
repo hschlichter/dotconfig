@@ -18,6 +18,13 @@ lsp.setup_nvim_cmp({
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-u>"] = cmp.mapping.scroll_docs(-5),
         ["<C-d>"] = cmp.mapping.scroll_docs(5),
+        ['<C-g>'] = function()
+            if cmp.visible_docs() then
+                cmp.close_docs()
+            else
+                cmp.open_docs()
+            end
+        end,
         ["<C-e>"] = cmp.mapping.abort(),
         ["<C-y>"] = cmp.mapping.confirm({ select = true }),
         ["<CR>"] = cmp.mapping.confirm({ select = true }),

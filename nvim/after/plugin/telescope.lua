@@ -3,36 +3,36 @@ local telescope = require("telescope");
 telescope.setup({
     defaults = {
         layout_config = {
-            vertical = { width = 0.8 }
+            vertical = { width = 0.8 },
         }
     },
     pickers = {
         find_files = {
             find_command = {"rg", "--files"},
             previewer = false,
-            theme = "ivy"
+            theme = "ivy",
         },
         buffers = {
             previewer = false,
-            theme = "ivy"
+            theme = "ivy",
         },
         live_grep = {
-            theme = "ivy"
+            theme = "ivy",
         },
         grep_string = {
-            theme = "ivy"
+            theme = "ivy",
         },
         lsp_document_symbols = {
             symbol_width = 75,
-            theme = "ivy"
+            theme = "ivy",
         },
         lsp_dynamic_workspace_symbols = {
             symbol_width = 75,
-            theme = "ivy"
+            theme = "ivy",
         },
         current_buffer_fuzzy_find = {
-            theme = "ivy"
-        }
+            theme = "ivy",
+        },
     },
     extensions = {
         fzf = {
@@ -53,8 +53,12 @@ local wrap = function(fn, ...)
     end
 end
 
+local telescope_opt = require('telescope.themes').get_ivy {
+    previewer = false,
+};
+
 local builtin = require("telescope.builtin");
-vim.keymap.set("n", "<C-p>", builtin.find_files);
+vim.keymap.set("n", "<C-p>", wrap(builtin.find_files, telescope_opt));
 vim.keymap.set("n", "<C-b>", wrap(builtin.buffers, { sort_lastused = true }));
 vim.keymap.set("n", "<C-t>", builtin.lsp_document_symbols);
 vim.keymap.set("n", "<leader>ff", builtin.live_grep);

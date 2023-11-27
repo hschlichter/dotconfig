@@ -10,6 +10,7 @@ require('nvim-treesitter.configs').setup({
         "c_sharp",
         "dockerfile",
         "gitignore",
+        "starlark",
     },
     sync_install = false,
     auto_install = true,

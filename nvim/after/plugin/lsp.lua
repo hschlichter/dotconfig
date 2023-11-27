@@ -44,12 +44,30 @@ lsp.configure("omnisharp", {});
 lsp.on_attach(function(_, bufnr)
     local bufopts = { noremap = false, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts);
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts);
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts);
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts);
-    vim.keymap.set("n", "ga", vim.lsp.buf.code_action, bufopts);
     vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts);
-    -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts);
+    vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, bufopts);
+    vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, bufopts);
+    vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, bufopts);
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts);
+    vim.keymap.set("n", "<leader>rs", ":LspRestart<cr>", bufopts);
+
+    local telescope = require("telescope.builtin");
+    local telescope_opt = require('telescope.themes').get_ivy {
+        previewer = false,
+    };
+
+    local wrap = function(fn, ...)
+        local args = { ... };
+        return function()
+            fn(unpack(args));
+        end
+    end
+
+    vim.keymap.set("n", "gd", wrap(telescope.lsp_definitions, bufopts));
+    vim.keymap.set("n", "gr", wrap(telescope.lsp_references, bufopts));
+    vim.keymap.set("n", "gt", wrap(telescope.lsp_type_definitions, bufopts));
+    vim.keymap.set("n", "gi", wrap(telescope.lsp_implementations, bufopts));
+    vim.keymap.set("n", "<leader>D", wrap(telescope.diagnostics, telescope_opt));
 end);
 lsp.nvim_workspace();
 lsp.set_sign_icons({
@@ -64,6 +82,4 @@ vim.diagnostic.config({
     virtual_text = true,
     severity_sort = true,
 });
-
-vim.keymap.set("n", "J", vim.diagnostic.open_float);
 

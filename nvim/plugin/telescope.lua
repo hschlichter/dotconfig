@@ -44,8 +44,6 @@ telescope.setup({
     }
 })
 
-telescope.load_extension("fzf");
-
 local wrap = function(fn, ...)
     local args = { ... };
     return function()

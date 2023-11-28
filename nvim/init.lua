@@ -1,8 +1,74 @@
-require("plugins");
-require("remap");
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim";
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    });
+end
+vim.opt.rtp:prepend(lazypath);
 
-vim.opt.termguicolors = true;
-vim.cmd("colorscheme dracula");
+require("lazy").setup({
+    {
+        "Mofiqul/dracula.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function ()
+            vim.opt.termguicolors = true;
+            vim.cmd("colorscheme dracula");
+        end
+    },
+    {
+        "nvim-tree/nvim-tree.lua",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        }
+    },
+    {
+        "nvim-lualine/lualine.nvim",
+        lazy = false,
+    },
+    "aserowy/tmux.nvim",
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    "numToStr/Comment.nvim",
+    "folke/which-key.nvim",
+    -- "lewis6991/gitsigns.nvim",
+    "tpope/vim-fugitive",
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+    { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+    {'williamboman/mason.nvim'},
+    {'williamboman/mason-lspconfig.nvim'},
+    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+    {'neovim/nvim-lspconfig'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/nvim-cmp'},
+    {'L3MON4D3/LuaSnip'},
+    "mfussenegger/nvim-dap",
+    "rcarriga/nvim-dap-ui",
+    "theHamsta/nvim-dap-virtual-text",
+});
+
+vim.g.mapleader= " ";
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv");
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv");
+vim.keymap.set("n", "<C-d>", "<C-d>zz");
+vim.keymap.set("n", "<C-u>", "<C-u>zz");
+
+vim.keymap.set("x", "<leader>p", "\"_dP");
+vim.keymap.set("n", "<leader>y", "\"+y");
+vim.keymap.set("v", "<leader>y", "\"+y");
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]);
+
+vim.opt.list = true;
+vim.opt.listchars:append "space:⋅";
+vim.opt.listchars:append "eol:↴";
 
 vim.opt.tabstop = 4;
 vim.opt.shiftwidth = 4;

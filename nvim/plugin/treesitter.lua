@@ -7,7 +7,6 @@ require('nvim-treesitter.configs').setup({
         "javascript",
         "typescript",
         "rust",
-        "c_sharp",
         "dockerfile",
         "gitignore",
         "starlark",

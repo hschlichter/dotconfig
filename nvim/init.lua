@@ -11,47 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath);
 
-require("lazy").setup({
-    {
-        "Mofiqul/dracula.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function ()
-            vim.opt.termguicolors = true;
-            vim.cmd("colorscheme dracula");
-        end
-    },
-    {
-        "nvim-tree/nvim-tree.lua",
-        lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        }
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-        lazy = false,
-    },
-    "aserowy/tmux.nvim",
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-    "numToStr/Comment.nvim",
-    "folke/which-key.nvim",
-    -- "lewis6991/gitsigns.nvim",
-    "tpope/vim-fugitive",
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    { "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
-    { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-    {'neovim/nvim-lspconfig'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/nvim-cmp'},
-    {'L3MON4D3/LuaSnip'},
-    "mfussenegger/nvim-dap",
-    "rcarriga/nvim-dap-ui",
-    "theHamsta/nvim-dap-virtual-text",
-});
+vim.g.loaded_netrw = 1;
+vim.g.loaded_netrwPlugin = 1;
 
 vim.g.mapleader= " ";
 
@@ -83,9 +44,9 @@ vim.opt.undofile = true;
 
 vim.opt.number = true;
 vim.opt.relativenumber = true;
-vim.opt.scrolloff = 8;
+-- vim.opt.scrolloff = 8;
 vim.opt.signcolumn = "yes";
-vim.opt.cursorline = false;
+vim.opt.cursorline = true;
 vim.opt.visualbell = true;
 
 vim.opt.hlsearch = true;
@@ -96,3 +57,5 @@ vim.opt.termguicolors = true;
 
 vim.opt.mouse = "a";
 vim.opt.completeopt = "menuone,noselect";
+
+require("lazy").setup("plugins");

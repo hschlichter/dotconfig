@@ -80,6 +80,7 @@ return {
                     {name = 'nvim_lua'},
                 },
                 formatting = lsp_zero.cmp_format(),
+                preselect = cmp.PreselectMode.None,
                 mapping = cmp.mapping.preset.insert({
                     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
                     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
@@ -94,9 +95,12 @@ return {
                     end,
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                    ["<CR>"] = cmp.mapping.confirm({ select = false }),
                     ["<C-t>"] = cmp.mapping.complete(),
                 }),
+                experimental = {
+                    ghost_text = true,
+                },
             });
         end
     },

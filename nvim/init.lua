@@ -15,6 +15,8 @@ vim.g.loaded_netrw = 1;
 vim.g.loaded_netrwPlugin = 1;
 
 vim.g.mapleader= " ";
+vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-c>', '<Esc>', {noremap = true, silent = true})
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv");
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv");

@@ -16,9 +16,9 @@ return {
             };
 
             local builtin = require("telescope.builtin");
-            vim.keymap.set("n", "<C-p>", wrap(builtin.find_files, telescope_opt));
-            vim.keymap.set("n", "<C-b>", wrap(builtin.buffers, { sort_lastused = true }));
-            vim.keymap.set("n", "<C-t>", builtin.lsp_document_symbols);
+            vim.keymap.set("n", "<leader>p", wrap(builtin.find_files, telescope_opt));
+            vim.keymap.set("n", "<leader>b", wrap(builtin.buffers, { sort_lastused = true }));
+            vim.keymap.set("n", "<leader>t", builtin.lsp_document_symbols);
             vim.keymap.set("n", "<leader>ff", builtin.live_grep);
             vim.keymap.set("n", "<leader>fs", builtin.grep_string);
             vim.keymap.set("n", "<leader>fb", builtin.current_buffer_fuzzy_find);

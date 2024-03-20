@@ -18,7 +18,7 @@ vim.g.mapleader= " ";
 
 local modes = {"n", "i", "v", "x"}
 for _, mode in ipairs(modes) do
-    vim.api.nvim_set_keymap(mode, "<C-c>", "<Esc>", {noremap = true, silent = true})
+    vim.api.nvim_set_keymap(mode, "<C-c>", "<Esc>", { noremap = true, silent = true })
 end
 
 vim.keymap.set("n", "<C-b>", ":b#<CR>");

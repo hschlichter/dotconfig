@@ -6,6 +6,12 @@ return {
         end
     },
     {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+            require("copilot_cmp").setup()
+        end
+    },
+    {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v3.x",
         dependencies = {
@@ -15,6 +21,7 @@ return {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/nvim-cmp",
             "L3MON4D3/LuaSnip",
+            "zbirenbaum/copilot-cmp",
         },
         config = function ()
             local lsp_zero = require('lsp-zero');
@@ -71,16 +78,32 @@ return {
             });
 
             local cmp = require('cmp')
-            local cmp_select = {behavior = cmp.SelectBehavior.Select}
+            local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
             cmp.setup({
                 sources = {
-                    {name = 'path'},
-                    {name = 'nvim_lsp'},
-                    {name = 'nvim_lua'},
+                    -- Copilot Source
+                    { name = "copilot", group_index = 2 },
+                    -- Other Sources
+                    { name = "nvim_lsp", group_index = 2 },
+                    { name = "path", group_index = 2 },
+                    { name = "luasnip", group_index = 2 },
+                },
+                preselect = 'item',
+                completion = {
+                    completeopt = 'menu,menuone,noinsert'
                 },
                 formatting = lsp_zero.cmp_format(),
-                preselect = cmp.PreselectMode.None,
+                window = {
+                    completion = cmp.config.window.bordered({
+                        border = "none",
+                        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+                    }),
+                    documentation = cmp.config.window.bordered({
+                        border = "none",
+                        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+                    }),
+                },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
                     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),

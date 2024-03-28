@@ -27,6 +27,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv");
 vim.keymap.set("n", "<C-d>", "<C-d>zz");
 vim.keymap.set("n", "<C-u>", "<C-u>zz");
 
+vim.keymap.set("n", "<leader>p", "\"_dP");
 vim.keymap.set("x", "<leader>p", "\"_dP");
 vim.keymap.set("n", "<leader>y", "\"+y");
 vim.keymap.set("v", "<leader>y", "\"+y");
@@ -51,7 +52,6 @@ vim.opt.undofile = true;
 
 vim.opt.number = true;
 vim.opt.relativenumber = true;
--- vim.opt.scrolloff = 8;
 vim.opt.signcolumn = "yes";
 vim.opt.cursorline = false;
 vim.opt.visualbell = true;
@@ -63,6 +63,5 @@ vim.opt.ignorecase = true;
 vim.opt.termguicolors = true;
 
 vim.opt.mouse = "a";
-vim.opt.completeopt = "menuone,noselect";
 
 require("lazy").setup("plugins");

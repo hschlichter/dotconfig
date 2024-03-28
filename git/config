@@ -1,36 +1,54 @@
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-[user]
-	name = Henrik Schlichter
-	email = henrik.schlichter@gmail.com
-[core]
-	autocrlf = false
-	editor = nvim
-[pull]
-	rebase = true
-[format]
-	pretty = %C(Yellow)%h %C(reset)%ad (%C(Green)%cr%C(reset)) %C(Cyan)%an: %C(reset)%s
-[log]
-	decorate = short
-	date = short
-[alias]
-	st = status -sb
-	wt = worktree
-	last = log -1 HEAD
-[merge]
-	renamelimit = 128000
-	tool = nvimdiff
-[diff]
-	tool = nvimdiff
-[difftool]
-    prompt = true
-[difftool "nvimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
-    
-[push]
-	autoSetupRemote = true
 [init]
-	defaultBranch = master
+defaultBranch = main 
+
+[core]
+autocrlf = false
+editor = nvim
+
+[user]
+name = Henrik Schlichter
+email = henrik.schlichter@gmail.com
+
+[pull]
+rebase = true
+
+[format]
+pretty = %C(Yellow)%h %C(reset)%ad (%C(Green)%cr%C(reset)) %C(Cyan)%an: %C(reset)%s
+
+[log]
+decorate = short
+date = short
+
+[alias]
+st = status -sb
+wt = worktree
+last = log -1 HEAD
+
+[merge]
+renamelimit = 128000
+tool = nvimdiff
+conflictstyle = diff3
+
+[mergetool "nvimdiff"]
+cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\""
+
+[diff]
+tool = nvimdiff
+
+[difftool "nvimdiff"]
+cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[push]
+autoSetupRemote = true
+
+[filter "lfs"]
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+clean = git-lfs clean -- %f
+
+[credential "https://github.com"]
+helper = !/opt/homebrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+helper = !/opt/homebrew/bin/gh auth git-credential

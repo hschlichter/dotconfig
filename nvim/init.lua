@@ -52,7 +52,7 @@ vim.opt.number = true;
 vim.opt.relativenumber = true;
 -- vim.opt.scrolloff = 8;
 vim.opt.signcolumn = "yes";
-vim.opt.cursorline = true;
+vim.opt.cursorline = false;
 vim.opt.visualbell = true;
 
 vim.opt.hlsearch = true;

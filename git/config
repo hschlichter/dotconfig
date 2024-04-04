@@ -29,9 +29,6 @@ renamelimit = 128000
 tool = nvimdiff
 conflictstyle = diff3
 
-[mergetool "nvimdiff"]
-cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\""
-
 [diff]
 tool = nvimdiff
 

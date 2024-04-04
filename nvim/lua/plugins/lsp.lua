@@ -78,20 +78,18 @@ return {
             });
 
             local cmp = require('cmp')
-            local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
             cmp.setup({
                 sources = {
                     -- Copilot Source
-                    { name = "copilot", group_index = 2 },
+                    { name = "copilot", group_index = 1 },
                     -- Other Sources
-                    { name = "nvim_lsp", group_index = 2 },
+                    { name = "nvim_lsp", group_index = 1 },
+                    { name = "luasnip", group_index = 1 },
                     { name = "path", group_index = 2 },
-                    { name = "luasnip", group_index = 2 },
                 },
-                preselect = 'item',
+                preselect = cmp.PreselectMode.None,
                 completion = {
-                    completeopt = 'menu,menuone,noinsert'
+                    completeopt = 'menu,menuone,noselect,noinsert'
                 },
                 formatting = lsp_zero.cmp_format(),
                 window = {
@@ -105,8 +103,8 @@ return {
                     }),
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-                    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+                    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+                    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
                     ["<C-u>"] = cmp.mapping.scroll_docs(-5),
                     ["<C-d>"] = cmp.mapping.scroll_docs(5),
                     ['<C-g>'] = function()

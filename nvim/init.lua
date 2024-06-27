@@ -64,4 +64,9 @@ vim.opt.termguicolors = true;
 
 vim.opt.mouse = "a";
 
+local local_config_path = vim.fn.getcwd() .. '/local.lua'
+if vim.fn.filereadable(local_config_path) == 1 then
+    dofile(local_config_path)
+end
+
 require("lazy").setup("plugins");

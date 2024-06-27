@@ -8,7 +8,6 @@ program = "/bin/zsh"
 
 [window]
 opacity = 1
-decorations = "Buttonless"
 
 [window.padding]
 x = 0

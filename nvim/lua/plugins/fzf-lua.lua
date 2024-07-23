@@ -9,7 +9,7 @@ return {
             { "<leader>fr", ":lua require('fzf-lua').resume()<CR>", desc = "Resume last" },
             { "<leader>gg", ":lua require('fzf-lua').grep()<CR>", desc = "Grep in files" },
             { "<leader>gw", ":lua require('fzf-lua').grep_cword()<CR>", desc = "Grep in files for word under cursor" },
-            { "<leader>gl", ":lua require('fzf-lua').live_grep()<CR>", desc = "Live grep in project" },
+            { "<leader>gl", ":lua require('fzf-lua').live_grep_glob()<CR>", desc = "Live grep in project" },
             { "<leader>gr", ":lua require('fzf-lua').live_grep_resume()<CR>", desc = "Resume last live grep" },
         },
         config = function()

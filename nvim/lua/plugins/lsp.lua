@@ -10,6 +10,7 @@ return {
             "hrsh7th/nvim-cmp",
             "L3MON4D3/LuaSnip",
         },
+        event = { "BufReadPre", "BufNewFile" },
         config = function ()
             local lsp_zero = require('lsp-zero');
 
@@ -34,6 +35,7 @@ return {
             require('mason').setup({});
             require('mason-lspconfig').setup({
                 ensure_installed = {
+                    "lua_ls",
                     "rust_analyzer",
                     "clangd",
                 },

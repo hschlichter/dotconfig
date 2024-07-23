@@ -22,24 +22,6 @@ return {
                 vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, bufopts);
                 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts);
                 vim.keymap.set("n", "<leader>rs", ":LspRestart<cr>", bufopts);
-
-                local telescope = require("telescope.builtin");
-                local telescope_opt = require('telescope.themes').get_ivy {
-                    previewer = false,
-                };
-
-                local wrap = function(fn, ...)
-                    local args = { ... };
-                    return function()
-                        fn(unpack(args));
-                    end
-                end
-
-                vim.keymap.set("n", "gd", wrap(telescope.lsp_definitions, bufopts));
-                vim.keymap.set("n", "gr", wrap(telescope.lsp_references, bufopts));
-                vim.keymap.set("n", "gt", wrap(telescope.lsp_type_definitions, bufopts));
-                vim.keymap.set("n", "gi", wrap(telescope.lsp_implementations, bufopts));
-                vim.keymap.set("n", "<leader>D", wrap(telescope.diagnostics, telescope_opt));
             end);
 
             lsp_zero.set_sign_icons({

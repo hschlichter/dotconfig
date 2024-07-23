@@ -16,7 +16,6 @@ return {
                     "rust",
                     "dockerfile",
                     "gitignore",
-                    "starlark",
                 },
                 sync_install = false,
                 auto_install = true,

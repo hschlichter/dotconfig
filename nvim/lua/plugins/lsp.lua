@@ -1,17 +1,5 @@
 return {
     {
-        "numToStr/Comment.nvim",
-        config = function ()
-            require('Comment').setup({});
-        end
-    },
-    {
-        "zbirenbaum/copilot-cmp",
-        config = function ()
-            require("copilot_cmp").setup()
-        end
-    },
-    {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v3.x",
         dependencies = {
@@ -21,7 +9,6 @@ return {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/nvim-cmp",
             "L3MON4D3/LuaSnip",
-            "zbirenbaum/copilot-cmp",
         },
         config = function ()
             local lsp_zero = require('lsp-zero');
@@ -80,9 +67,6 @@ return {
             local cmp = require('cmp')
             cmp.setup({
                 sources = {
-                    -- Copilot Source
-                    -- { name = "copilot", group_index = 1 },
-                    -- Other Sources
                     { name = "nvim_lsp", group_index = 1 },
                     { name = "luasnip", group_index = 1 },
                     { name = "path", group_index = 2 },

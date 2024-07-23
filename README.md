@@ -17,16 +17,13 @@ $ brew install alacritty
 ```
 $ brew install fzf
 
-$(brew --prefix)/opt/fzf/install
+$(brew --postfix)/opt/fzf/install
 ```
 
 ## Neovim
 ```
 $ brew install nvim
 ```
-
-Run `:PackerUpdate` after first open.
-
 
 ## Various
 
@@ -38,3 +35,11 @@ $ brew install ripgrep
 $ brew install fd
 $ brew install zoxide
 ```
+
+## TMux
+Install TPM(plugin manager).
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Remember install plugins by using the shortcut `<C-space>I`

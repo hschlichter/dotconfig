@@ -1,6 +1,7 @@
 configstore/
 github-copilot/
 nvim/plugin/packer_compiled.lua
+tmux/plugins
 
 # Compiled Lua sources
 luac.out

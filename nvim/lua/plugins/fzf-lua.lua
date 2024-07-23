@@ -21,8 +21,15 @@ return {
                     width = 1,
                     border = 'none',
                     preview = {
-                        layout = 'horizontal', -- Layout of the preview window (can be 'vertical' or 'horizontal')
-                        horizontal = 'right:40%', -- Adjust width when layout is 'horizontal'
+                        layout = 'horizontal',
+                        horizontal = 'right:40%',
+                    },
+                },
+                keymap = {
+                    fzf = {
+                        true,
+                        ["ctrl-d"] = "half-page-down",
+                        ["ctrl-u"] = "half-page-up",
                     },
                 }
             })

@@ -12,7 +12,7 @@ return {
             vim.keymap.set("n", "<C-up>", tmux.resize_top);
             vim.keymap.set("n", "<C-right>", tmux.resize_right);
         end,
-        config = function () 
+        config = function ()
             local tmux = require("tmux");
             tmux.setup({
                 copy_sync = {

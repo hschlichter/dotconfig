@@ -22,7 +22,8 @@ return {
                 vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, bufopts);
                 vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, bufopts);
                 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts);
-                vim.keymap.set("n", "<leader>rs", ":LspRestart<cr>", bufopts);
+                vim.keymap.set("n", "<leader>ls", ":LspStop<cr>", bufopts);
+                vim.keymap.set("n", "<leader>lr", ":LspRestart<cr>", bufopts);
             end);
 
             lsp_zero.set_sign_icons({

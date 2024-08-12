@@ -26,3 +26,5 @@ ensure_installed fzf
 ensure_installed yazi
 ensure_installed jq
 ensure_installed btop
+ensure_installed nvim
+ensure_installed starship

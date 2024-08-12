@@ -6,6 +6,7 @@ return {
             { "<leader>ff", ":lua require('fzf-lua').files({ winopts = { preview = { hidden = 'true' } } })<CR>", desc = "Find files" },
             { "<leader>fb", ":lua require('fzf-lua').buffers()<CR>", desc = "Find in buffers" },
             { "<leader>fl", ":lua require('fzf-lua').lines()<CR>", desc = "Find in open buffers lines" },
+            { "<leader>fs", ":lua require('fzf-lua').blines()<CR>", desc = "Find in current buffer lines" },
             { "<leader>fr", ":lua require('fzf-lua').resume()<CR>", desc = "Resume last" },
             { "<leader>gg", ":lua require('fzf-lua').grep()<CR>", desc = "Grep in files" },
             { "<leader>gw", ":lua require('fzf-lua').grep_cword()<CR>", desc = "Grep in files for word under cursor" },

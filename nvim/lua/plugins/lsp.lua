@@ -24,6 +24,7 @@ return {
                 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts);
                 vim.keymap.set("n", "<leader>ls", ":LspStop<cr>", bufopts);
                 vim.keymap.set("n", "<leader>lr", ":LspRestart<cr>", bufopts);
+                vim.keymap.set("n", "<leader>fo", ":ClangdSwitchSourceHeader<cr>", bufopts);
             end);
 
             lsp_zero.set_sign_icons({

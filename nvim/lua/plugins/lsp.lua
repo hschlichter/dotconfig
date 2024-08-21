@@ -16,7 +16,7 @@ return {
 
             lsp_zero.on_attach(function(client, bufnr)
                 local bufopts = { noremap = false, silent = true, buffer = bufnr }
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts);
+                vim.keymap.set("n", "gd", vim.lsp.buf.declaration, bufopts);
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts);
                 vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, bufopts);
                 vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, bufopts);
@@ -85,6 +85,7 @@ return {
                     end,
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                    ["<C-f>"] = cmp.mapping.confirm({ select = true }),
                     ["<CR>"] = cmp.mapping.confirm({ select = false }),
                     ["<C-t>"] = cmp.mapping.complete(),
                 }),

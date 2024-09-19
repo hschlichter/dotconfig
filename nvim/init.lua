@@ -38,6 +38,12 @@ vim.keymap.set("n", "<leader>y", "\"+y");
 vim.keymap.set("v", "<leader>y", "\"+y");
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]);
+vim.keymap.set('n', '<leader>fx', function()
+    local line = vim.api.nvim_win_get_cursor(0)[1]
+    local file = vim.fn.expand('%:p')
+    local cmd = {'xed', '--line', tostring(line), file}
+    vim.fn.jobstart(cmd, { detach = true })
+end, { noremap = true, silent = true })
 
 vim.opt.list = true;
 vim.opt.listchars:append "space:⋅";

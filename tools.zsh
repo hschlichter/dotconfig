@@ -29,3 +29,4 @@ ensure_installed btop
 ensure_installed nvim
 ensure_installed starship
 ensure_installed difftastic
+ensure_installed gh

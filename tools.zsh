@@ -28,3 +28,4 @@ ensure_installed jq
 ensure_installed btop
 ensure_installed nvim
 ensure_installed starship
+ensure_installed difftastic

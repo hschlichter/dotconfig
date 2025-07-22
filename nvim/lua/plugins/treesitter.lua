@@ -10,6 +10,7 @@ return {
                 ensure_installed = {
                     "c",
                     "cpp",
+                    "glsl",
                     "lua",
                     "vim",
                     "javascript",
@@ -17,6 +18,9 @@ return {
                     "rust",
                     "dockerfile",
                     "gitignore",
+                },
+                filetype_to_parsername = {
+                    glsl = "glsl",
                 },
                 sync_install = false,
                 auto_install = true,

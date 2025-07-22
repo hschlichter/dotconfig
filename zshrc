@@ -62,3 +62,9 @@ alias y='yazi'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+
+# Created by `pipx` on 2025-04-21 11:15:38
+export PATH="$PATH:/Users/henrikschlichter/.local/bin"
+
+# Ensure open file limit is high
+ulimit -n 65535

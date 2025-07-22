@@ -50,6 +50,13 @@ return {
                 },
             });
 
+            local luasnip = require('luasnip')
+            luasnip.config.set_config {
+                history = false,
+                region_check_events = "CursorMoved,CursorMovedI",
+                delete_check_events = "InsertLeave,TextChanged",
+            }
+
             local cmp = require('cmp')
             cmp.setup({
                 sources = {
@@ -73,6 +80,30 @@ return {
                     }),
                 },
                 mapping = cmp.mapping.preset.insert({
+
+                    -- <Tab> jumps within cmp menu or luasnip snippet
+                    ['<Tab>'] = cmp.mapping(function(fallback)
+                        -- if cmp.visible() then
+                        --     cmp.select_next_item()
+                        if luasnip.expand_or_jumpable() then
+                            luasnip.expand_or_jump()
+                        else
+                            fallback()
+                        end
+                    end, {'i','s'}),
+
+                    -- <S-Tab> jumps backwards
+                    ['<S-Tab>'] = cmp.mapping(function(fallback)
+                        -- if cmp.visible() then
+                        --     cmp.select_prev_item()
+                        if luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, {'i','s'}),
+
+
                     ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
                     ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
                     ["<C-u>"] = cmp.mapping.scroll_docs(-5),

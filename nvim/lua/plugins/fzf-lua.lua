@@ -32,6 +32,12 @@ return {
                         ["ctrl-d"] = "half-page-down",
                         ["ctrl-u"] = "half-page-up",
                     },
+                },
+                files = {
+                    file_ignore_patterns = {
+                        "^.cache/",
+                        "^.temp/",
+                    },
                 }
             })
         end

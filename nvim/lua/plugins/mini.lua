@@ -47,50 +47,48 @@ return {
         version = false,
         config = function ()
             require("mini.ai").setup({
-                {
-                    custom_textobjects = nil,
-                    mappings = {
-                        around = "a",
-                        inside = "i",
-                        around_next = "an",
-                        inside_next = "in",
-                        around_last = "al",
-                        inside_last = "il",
-                        goto_left = "g[",
-                        goto_right = "g]",
-                    },
-                    n_lines = 50,
-                    search_method = "cover_or_next",
-                    silent = false,
-                }
-            })
-        end
-    },
-    {
-        "echasnovski/mini.surround",
-        version = false,
-        config = function ()
-            require("mini.surround").setup({
-                custom_surroundings = nil,
-                highlight_duration = 500,
+                custom_textobjects = nil,
                 mappings = {
-                    add = "<leader>sa",
-                    delete = "<leader>sd",
-                    find = "<leader>sf",
-                    find_left = "<leader>sF",
-                    highlight = "<leader>sh",
-                    replace = "<leader>sr",
-                    update_n_lines = "<leader>sn",
-                    suffix_last = "l",
-                    suffix_next = "n",
+                    around = "a",
+                    inside = "i",
+                    around_next = "an",
+                    inside_next = "in",
+                    around_last = "al",
+                    inside_last = "il",
+                    goto_left = "g[",
+                    goto_right = "g]",
                 },
-                n_lines = 20,
-                respect_selection_type = false,
-                search_method = "cover",
+                n_lines = 50,
+                search_method = "cover_or_next",
                 silent = false,
             })
         end
     },
+    -- {
+    --     "echasnovski/mini.surround",
+    --     version = false,
+    --     config = function ()
+    --         require("mini.surround").setup({
+    --             custom_surroundings = nil,
+    --             highlight_duration = 500,
+    --             mappings = {
+    --                 add = "<leader>sa",
+    --                 delete = "<leader>sd",
+    --                 find = "<leader>sf",
+    --                 find_left = "<leader>sF",
+    --                 highlight = "<leader>sh",
+    --                 replace = "<leader>sr",
+    --                 update_n_lines = "<leader>sn",
+    --                 suffix_last = "l",
+    --                 suffix_next = "n",
+    --             },
+    --             n_lines = 20,
+    --             respect_selection_type = false,
+    --             search_method = "cover",
+    --             silent = false,
+    --         })
+    --     end
+    -- },
     {
         "echasnovski/mini.jump",
         version = false,

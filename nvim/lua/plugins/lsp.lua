@@ -8,6 +8,7 @@ return {
             "neovim/nvim-lspconfig",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/nvim-cmp",
+            "hrsh7th/cmp-path",
             "L3MON4D3/LuaSnip",
         },
         event = { "BufReadPre", "BufNewFile" },
@@ -15,8 +16,7 @@ return {
             local lsp_zero = require('lsp-zero');
 
             lsp_zero.on_attach(function(client, bufnr)
-                local bufopts = { noremap = false, silent = true, buffer = bufnr }
-                vim.keymap.set("n", "gd", vim.lsp.buf.declaration, bufopts);
+                local bufopts = { noremap = true, silent = true, buffer = bufnr }
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts);
                 vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, bufopts);
                 vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, bufopts);
@@ -83,8 +83,6 @@ return {
 
                     -- <Tab> jumps within cmp menu or luasnip snippet
                     ['<Tab>'] = cmp.mapping(function(fallback)
-                        -- if cmp.visible() then
-                        --     cmp.select_next_item()
                         if luasnip.expand_or_jumpable() then
                             luasnip.expand_or_jump()
                         else
@@ -94,8 +92,6 @@ return {
 
                     -- <S-Tab> jumps backwards
                     ['<S-Tab>'] = cmp.mapping(function(fallback)
-                        -- if cmp.visible() then
-                        --     cmp.select_prev_item()
                         if luasnip.jumpable(-1) then
                             luasnip.jump(-1)
                         else

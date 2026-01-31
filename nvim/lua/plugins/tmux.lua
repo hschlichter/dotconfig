@@ -1,17 +1,16 @@
 return {
     {
         "aserowy/tmux.nvim",
-        keys = function ()
-            local tmux = require("tmux");
-            vim.keymap.set("n", "<C-h>", tmux.move_left);
-            vim.keymap.set("n", "<C-j>", tmux.move_bottom);
-            vim.keymap.set("n", "<C-k>", tmux.move_top);
-            vim.keymap.set("n", "<C-l>", tmux.move_right);
-            vim.keymap.set("n", "<C-left>", tmux.resize_left);
-            vim.keymap.set("n", "<C-down>", tmux.resize_bottom);
-            vim.keymap.set("n", "<C-up>", tmux.resize_top);
-            vim.keymap.set("n", "<C-right>", tmux.resize_right);
-        end,
+        keys = {
+            { "<C-h>", function() require("tmux").move_left() end, mode = "n", desc = "Move to left pane" },
+            { "<C-j>", function() require("tmux").move_bottom() end, mode = "n", desc = "Move to bottom pane" },
+            { "<C-k>", function() require("tmux").move_top() end, mode = "n", desc = "Move to top pane" },
+            { "<C-l>", function() require("tmux").move_right() end, mode = "n", desc = "Move to right pane" },
+            { "<C-left>", function() require("tmux").resize_left() end, mode = "n", desc = "Resize left" },
+            { "<C-down>", function() require("tmux").resize_bottom() end, mode = "n", desc = "Resize down" },
+            { "<C-up>", function() require("tmux").resize_top() end, mode = "n", desc = "Resize up" },
+            { "<C-right>", function() require("tmux").resize_right() end, mode = "n", desc = "Resize right" },
+        },
         config = function ()
             local tmux = require("tmux");
             tmux.setup({

@@ -57,6 +57,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Aliases
 alias ls='exa -lh --group-directories-first'
+alias lsa='exa -lh --group-directories-first --all'
 alias lt='exa --tree --level=2 --long --icons --git'
 alias vim='nvim'
 alias y='yazi'

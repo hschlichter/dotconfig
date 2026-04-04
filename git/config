@@ -4,6 +4,7 @@ defaultBranch = main
 [core]
 autocrlf = false
 editor = nvim
+pager = delta
 
 [user]
 name = Henrik Schlichter
@@ -29,8 +30,8 @@ renamelimit = 128000
 tool = nvimdiff
 conflictstyle = diff3
 
-[diff]
-external = difft
+; [diff]
+; external = difft
 
 [push]
 autoSetupRemote = true

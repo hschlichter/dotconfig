@@ -6,7 +6,7 @@ return {
         opts = {
             bigfile = { enabled = true },
             dashboard = { enabled = true },
-            explorer = { enabled = false },
+            explorer = { enabled = true },
             indent = { 
                 enabled = false,
             },
@@ -40,6 +40,7 @@ return {
             { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
             { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
             { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
+            { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
             -- find
             { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
             { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
@@ -137,6 +138,8 @@ return {
                     vim.api.nvim_set_hl(0, "SnacksPickerFile", {
                         fg = "#F8F8F2", -- normal foreground
                     })
+
+                    vim.api.nvim_set_hl(0, "SnacksFileHidden", { fg = "#bd93f9" })
                 end,
             })
         end,

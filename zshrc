@@ -53,8 +53,11 @@ zstyle ':completion:*:*:kill:*' command 'ps -eo pid,user,comm'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # Aliases
-alias ls='ls --color'
+alias ls='exa -lh --group-directories-first'
+alias lt='exa --tree --level=2 --long --icons --git'
 alias vim='nvim'
 alias y='yazi'
 
@@ -63,8 +66,8 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 
-# Created by `pipx` on 2025-04-21 11:15:38
-export PATH="$PATH:/Users/henrikschlichter/.local/bin"
-
 # Ensure open file limit is high
-ulimit -n 65535
+#ulimit -n 65535
+
+# Run fastfetch only in interactive shells
+[[ -o interactive ]] && fastfetch

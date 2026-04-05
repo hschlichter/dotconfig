@@ -45,6 +45,23 @@ vim.keymap.set('n', '<leader>fx', function()
     vim.fn.jobstart(cmd, { detach = true })
 end, { noremap = true, silent = true })
 
+require("contextcopy");
+vim.keymap.set("x", "<leader>cc", function()
+  local mode   = vim.fn.visualmode()
+  local anchor = vim.fn.getpos("v")
+  local cursor = vim.fn.getpos(".")
+  local line1  = math.min(anchor[2], cursor[2])
+  local line2  = math.max(anchor[2], cursor[2])
+  local col1   = anchor[2] <= cursor[2] and anchor[3] or cursor[3]
+  local col2   = anchor[2] <= cursor[2] and cursor[3] or anchor[3]
+  vim.schedule(function()
+    vim.cmd(string.format("%d,%dContextCopy %s %d %d", line1, line2, mode, col1, col2))
+  end)
+end, {
+  desc   = "Copy visual selection with context",
+  silent = true,
+})
+
 vim.opt.list = true;
 vim.opt.listchars:append "space:⋅";
 vim.opt.listchars:append "eol:↴";

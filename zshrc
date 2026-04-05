@@ -53,6 +53,7 @@ zstyle ':completion:*:*:kill:*' command 'ps -eo pid,user,comm'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+export TERMINAL=kitty
 export PATH="$HOME/.local/bin:$PATH"
 
 # Aliases

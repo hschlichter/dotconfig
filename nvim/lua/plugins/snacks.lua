@@ -6,8 +6,10 @@ return {
         opts = {
             bigfile = { enabled = true },
             dashboard = { enabled = true },
-            explorer = { enabled = true },
-            indent = { 
+            explorer = {
+                enabled = true,
+            },
+            indent = {
                 enabled = false,
             },
             input = { enabled = true },
@@ -21,11 +23,19 @@ return {
                     preset = "ivy",
                     preview = false,
                 },
+                sources = {
+                    explorer = {
+                        layout = {
+                            preset = "default",
+                            preview = false,
+                        },
+                    },
+                },
                 grep = {
                     live = true,
                     debounce = 200,
                     auto_open = false,
-                }
+                },
             },
             quickfile = { enabled = true },
             scope = { enabled = false },
